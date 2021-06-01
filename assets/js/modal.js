@@ -12,6 +12,11 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
+// éléments complémentaires
+//
+const closeBtn = document.querySelectorAll(".close");
+
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -19,5 +24,13 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
+
+// close modal form
+// ( + accessibilité)
+function closeModal(){
+  modalbg.style.display = "none";
+}
+
+element.addEventListener('click', closeModal);
 
 
