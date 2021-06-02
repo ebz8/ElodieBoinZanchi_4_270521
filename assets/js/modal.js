@@ -12,9 +12,10 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-// éléments complémentaires
-//
-const closeBtn = document.querySelectorAll(".close");
+
+const closeBtn = document.querySelector(".close");
+//test
+console.log(closeBtn);
 
 
 // launch modal event
@@ -27,10 +28,12 @@ function launchModal() {
 
 // close modal form
 // ( + accessibilité)
-function closeModal(){
+function closeModal() {
   modalbg.style.display = "none";
 }
 
-element.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closeModal);
+
+
 
 
