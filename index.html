@@ -67,7 +67,10 @@
                   type="text"
                   id="first"
                   name="first"
-                /><br>
+                  required
+                  onblur= "validerPrenom();"
+                />
+                <span class="errorMsg"></p>
               </div>
               <div
                 class="formData">
@@ -77,6 +80,8 @@
                   type="text"
                   id="last"
                   name="last"
+                  required
+                  onblur= "validerNom();"
                 /><br>
               </div>
               <div
@@ -87,6 +92,8 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
+                  onblur= "validerMail();"
                 /><br>
               </div>
               <div
@@ -97,14 +104,22 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input
+                type="number"
+                class="text-control"
+                id="quantity"
+                name="quantity"
+                min="0"
+                max="99"
+                required/>
               </div>
-              <p class="text-label">Quelles villes ?</p>
+              <p class="text-label">Quelle ville ?</p>
               <div
                 class="formData">
                 <input
@@ -196,7 +211,7 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                id="btn-submit"
                 type="submit"
                 class="button"
                 value="C'est parti"
