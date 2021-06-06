@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="utf-8" />
     <title>Réservation</title>
@@ -11,7 +12,9 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
+
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
       <img alt="logo" src="assets/img/Logo.png" width="auto" height="auto" />
@@ -29,6 +32,8 @@
     </div>
     </div>
   </div>
+
+  <!-- bloc accueil -->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -49,19 +54,17 @@
         </div>
       </div>
 
+    <!-- modale -->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form
-              name="reserve"
-              action="index.html"
-              method="get"
-              onsubmit="return validate();"
-            >
-              <div
-                class="formData">
-                <label>Prénom</label><br>
+            
+            <!-- formulaire -->
+            <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+              
+              <div class="formData">
+                <label>Prénom</label>
                 <input
                   class="text-control"
                   type="text"
@@ -70,11 +73,10 @@
                   required
                   onblur= "validerPrenom();"
                 />
-                <span class="errorMsg"></p>
               </div>
-              <div
-                class="formData">
-                <label>Nom</label><br>
+
+              <div class="formData">
+                <label>Nom</label>
                 <input
                   class="text-control"
                   type="text"
@@ -82,11 +84,11 @@
                   name="last"
                   required
                   onblur= "validerNom();"
-                /><br>
+                />
               </div>
-              <div
-                class="formData">
-                <label>E-mail</label><br>
+
+              <div class="formData">
+                <label>E-mail</label>
                 <input
                   class="text-control"
                   type="email"
@@ -94,10 +96,10 @@
                   name="email"
                   required
                   onblur= "validerMail();"
-                /><br>
+                />
               </div>
-              <div
-                class="formData">
+
+              <div class="formData">
                 <label>Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -105,23 +107,24 @@
                   id="birthdate"
                   name="birthdate"
                   required
-                /><br>
+                />
               </div>
-              <div
-                class="formData">
+
+              <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input
-                type="number"
-                class="text-control"
-                id="quantity"
-                name="quantity"
-                min="0"
-                max="99"
-                required/>
+                  type="number"
+                  class="text-control"
+                  id="quantity"
+                  name="quantity"
+                  min="0"
+                  max="99"
+                  required
+                />
               </div>
+
               <p class="text-label">Quelle ville ?</p>
-              <div
-                class="formData">
+              <div class="formData">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -131,8 +134,8 @@
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
-                  New York</label
-                >
+                New York</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -142,8 +145,8 @@
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
+                San Francisco</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -153,8 +156,8 @@
                 />
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
-                  Seattle</label
-                >
+                Seattle</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -164,8 +167,8 @@
                 />
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
-                  Chicago</label
-                >
+                Chicago</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -175,8 +178,8 @@
                 />
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
-                  Boston</label
-                >
+                Boston</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -186,12 +189,11 @@
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label
-                >
+                Portland</label>
+                <span class="errorMsg"></span>
               </div>
 
-              <div
-                class="formValidation">
+              <div class="formValidation">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -202,7 +204,9 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+
                 <br>
+
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -210,22 +214,23 @@
                 </label>
                 <br>
               </div>
-              <input
-                id="btn-submit"
-                type="submit"
-                class="button"
-                value="C'est parti"
-              />
+
+              <input id="btn-submit" type="submit" class="button" value="C'est parti"/>
             </form>
+
           </div>
         </div>
       </div>
+
     </main>
+
     <footer>
       <p class="copyrights">
         Copyright 2014 - 2020, GameOn Inc.
       </p>
     </footer>
+
     <script src="assets/js/modal.js"></script>
+
   </body>
 </html>
