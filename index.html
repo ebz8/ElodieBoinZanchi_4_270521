@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   
   <head>
     <meta charset="utf-8" />
@@ -7,33 +7,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
   </head>
 
   <body>
 
+    <!-- navigation -->
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="assets/img/Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+        <img alt="logo" src="assets/img/Logo.png" width="auto" height="auto" />
+      </div>
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- bloc accueil -->
+  <!-- page d'accueil -->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -70,6 +67,7 @@
                   type="text"
                   id="first"
                   name="first"
+                  placeholder="Valentin"
                   required
                   onblur= "validerPrenom();"
                 />
@@ -113,13 +111,11 @@
               <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input
-                  type="number"
                   class="text-control"
                   id="quantity"
                   name="quantity"
-                  min="0"
-                  max="99"
                   required
+                  onblur="validerConcours()";
                 />
               </div>
 
@@ -127,8 +123,8 @@
               <div class="formData">
                 <input
                   class="checkbox-input"
-                  type="radio"
                   id="location1"
+                  type="radio"
                   name="location"
                   value="New York"
                 />
@@ -193,6 +189,7 @@
                 <span class="errorMsg"></span>
               </div>
 
+              <!-- validation et envoi du formulaire -->
               <div class="formValidation">
                 <input
                   class="checkbox-input"
@@ -200,19 +197,19 @@
                   id="checkbox1"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
 
-                <br>
+                <br> <!-- remplacer -->
 
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
-                <br>
+                <br> <!-- remplacer -->
               </div>
 
               <input id="btn-submit" type="submit" class="button" value="C'est parti"/>
@@ -226,7 +223,7 @@
 
     <footer>
       <p class="copyrights">
-        Copyright 2014 - 2020, GameOn Inc.
+        Copyright 2014 - 2021, GameOn Inc.
       </p>
     </footer>
 
