@@ -207,8 +207,11 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
-  content: attr(data-error);
+
+/* 
+reprendre le style pour bloquer les alertes HTML etc
+} */
+.data-error {
   font-size: 0.4em;
   color: #e54858;
   display: block;
@@ -216,7 +219,6 @@ input {
   margin-bottom: 7px;
   text-align: right;
   line-height: 0.3;
-  opacity: 0;
   transition: 0.3s;
 }
 .formData[data-error-visible="true"]::after {

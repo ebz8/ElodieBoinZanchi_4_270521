@@ -36,6 +36,7 @@ const formVille = document.querySelectorAll(".formData .checkbox-input[type=radi
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
 const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexConcours = /^\d+$/; // entre 0 et 99
+let champValide = true;
 // const regexToday = new Date();
 
 
@@ -59,12 +60,15 @@ btnFermerModale.addEventListener('click', fermerModale);
 // prénom
 function validerPrenom(){
   if (regexNom.test(formPrenom.value) === true){
+    champValide = true;
       formPrenom.style.borderColor = "black";
+      messageErreur[0].textContent = " ";
 
   console.log("Prénom valide");
 
   }else{
       formPrenom.style.borderColor = "red";
+      champValide = false;
       // message d'erreur :
       messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
 
@@ -75,9 +79,12 @@ function validerPrenom(){
 // nom
 function validerNom(){
   if (regexNom.test(formNom.value) === true){
+      champValide = true;
       formNom.style.borderColor = "black";
+      messageErreur[1].textContent = " ";
 
   }else{
+      champValide = false;
       formNom.style.borderColor = "red";
       // message d'erreur :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
@@ -89,10 +96,13 @@ function validerNom(){
 // email
 function validerMail(){
   if (regexAdresseMail.test(formMail.value) === true){
+      champValide = true;
       formMail.style.borderColor = "black";
+      messageErreur[2].textContent = " ";
   console.log("Adresse mail valide");
 
   }else{
+      champValide = false;
       formMail.style.borderColor = "red";
       // message d'erreur :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
@@ -111,10 +121,13 @@ function validerMail(){
 // nombre de concours (entre 0 et 99)
 function validerConcours(){
   if (regexConcours.test(formConcours.value) === true){
+      champValide = true;
       formConcours.style.borderColor = "black";
+      messageErreur[4].textContent = " ";
   console.log("Nombre de participations valide");
 
   }else{
+      champValide = false;
       formConcours.style.borderColor = "red";
       // message d'erreur :
       messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
@@ -122,26 +135,15 @@ function validerConcours(){
   }
 }
 
-// ville : si un bouton radio checked = true
-function validerVille(){
-  if (formVille.checked === true){
-    console.log("Ville selectionnée");
-
-  }else{
-    // message d'erreur :
-    messageErreur[2].textContent = "Veuillez sélectionner une ville.";
-  }
-}
-
 // ENVOI DU FORMULAIRE
 function sendForm(){
-if (formName.validity){
-    e.preventDefault(); 
-    
-  }
-}
+  if (champValide = false){
+    return false;
 
-btnEnvoiFormulaire.addEventListener("submit", sendForm);
+  }else{
+    return true;
+}
+}
 
 
 

@@ -58,7 +58,11 @@
           <div class="modal-body">
             
             <!-- formulaire -->
-            <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+            <form
+            name="reserve"
+            action="index.html"
+            method="get"
+            onsubmit="return sendForm();">
               
               <div class="formData">
                 <label>Prénom</label>
@@ -110,6 +114,7 @@
                   id="birthdate"
                   name="birthdate"
                   required
+                  onblur= "validerDateNaissance();"
                 />
                 <span class="data-error"></span>
               </div>
@@ -199,7 +204,7 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                 Portland</label>
-                
+
                 <span class="data-error"></span>
               </div>
 
@@ -210,6 +215,7 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
+                  required
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
@@ -221,7 +227,7 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu.e des prochains évènements.
                 </label>
                 <br> <!-- remplacer -->
               </div>
