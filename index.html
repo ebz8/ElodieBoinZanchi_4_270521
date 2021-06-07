@@ -85,6 +85,7 @@
                   onblur= "validerNom();"
                   placeholder="Boyer"
                 />
+                <span class="data-error"></span>
               </div>
 
               <div class="formData">
@@ -110,6 +111,7 @@
                   name="birthdate"
                   required
                 />
+                <span class="data-error"></span>
               </div>
 
               <div class="formData">
@@ -126,6 +128,7 @@
                   required
                   onblur="validerConcours()";
                 />
+                <span class="data-error"></span>
               </div>
 
               <p class="text-label">Quelle ville ?</p>
@@ -196,7 +199,8 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                 Portland</label>
-                <span class="errorMsg"></span>
+                
+                <span class="data-error"></span>
               </div>
 
               <!-- validation et envoi du formulaire -->

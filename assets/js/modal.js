@@ -22,6 +22,7 @@ const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouv
 const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
+const messageErreur = document.getElementsByClassName("data-error");
 
 // Données des utilisateurs
 const formPrenom = document.getElementById("first"); // Prénom
@@ -65,9 +66,7 @@ function validerPrenom(){
   }else{
       formPrenom.style.borderColor = "red";
       // message d'erreur :
-      let msgErreur = document.createElement("span");
-      msgErreur.innerHTML = "<span> Veuillez saisir un prénom valide. </span>";
-      formPrenom.parendElement.appendChild(msgErreur); // version par classe mais trouver comment selec les suivantes
+      messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
 
   console.log("Veuillez saisir un prénom valide.");
   }
@@ -80,10 +79,8 @@ function validerNom(){
 
   }else{
       formNom.style.borderColor = "red";
-      // comment selec le formulaireChamp correspondant (boucle for?) :
-      let msgErreur = document.createElement("span");
-      msgErreur.innerHTML = "<span> Veuillez saisir un nom valide. </span>"
-      formNom.parentElement.appendChild(msgErreur);
+      // message d'erreur :
+      messageErreur[1].textContent = "Veuillez saisir un nom valide.";
 
   console.log("Veuillez saisir un nom valide.");
   }
@@ -97,10 +94,8 @@ function validerMail(){
 
   }else{
       formMail.style.borderColor = "red";
-      // message d'erreur
-      let msgErreur = document.createElement("span");
-      msgErreur.innerHTML = "<span> Veuillez renseigner une adresse mail valide. </span>"
-      formMail.parentElement.appendChild(msgErreur); 
+      // message d'erreur :
+      messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
   console.log("Veuillez saisir une adresse mail valide.");
   }
 }
@@ -108,11 +103,10 @@ function validerMail(){
 // fonction message Erreur
 //   for(i = 0; i < formulaireChamp.frequence.length; i++){
 // }
-//   let msgErreur = document.createElement("span");
-//   msgErreur.innerHTML = "<span> Veuillez saisir une adresse mail valide. </span>"
-// }
 
 // facultatif : date de naissance (inf à la date du jour)
+// message d'erreur :
+// messageErreur[3].textContent = "Veuillez saisir une date de naissance valide.";
 
 // nombre de concours (entre 0 et 99)
 function validerConcours(){
@@ -122,6 +116,8 @@ function validerConcours(){
 
   }else{
       formConcours.style.borderColor = "red";
+      // message d'erreur :
+      messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
   console.log("Renseignez le nombre de vos participations à un concours.");
   }
 }
@@ -132,17 +128,14 @@ function validerVille(){
     console.log("Ville selectionnée");
 
   }else{
-    // message d'erreur
-    let msgErreur = document.createElement("span");
-    msgErreur.innerHTML = "<span> Veuillez sélectionner une ville. </span>"
-    formVille.parentElement.appendChild(msgErreur);
+    // message d'erreur :
+    messageErreur[2].textContent = "Veuillez sélectionner une ville.";
   }
-
 }
 
 // ENVOI DU FORMULAIRE
 function sendForm(){
-if (formName.validity.valueMissing){
+if (formName.validity){
     e.preventDefault(); 
     
   }
