@@ -61,20 +61,15 @@ btnFermerModale.addEventListener('click', fermerModale);
 function validerPrenom(){
   if (regexNom.test(formPrenom.value) === true){
     champValide = true;
-      formPrenom.style.borderColor = "black";
-      messageErreur[0].textContent = " ";
-
-  console.log("Prénom valide");
+    messageErreur[0].textContent = " ";
+    formPrenom.style.borderColor = "black";
 
   }else{
-      formPrenom.style.borderColor = "red";
-      champValide = false;
-      // message d'erreur :
-      messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
-
-  console.log("Veuillez saisir un prénom valide.");
-  }
-}
+    champValide = false;
+    // message d'erreur :
+    messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
+    formPrenom.style.borderColor = "red";
+}}
 
 // nom
 function validerNom(){
@@ -85,65 +80,54 @@ function validerNom(){
 
   }else{
       champValide = false;
-      formNom.style.borderColor = "red";
       // message d'erreur :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
-
-  console.log("Veuillez saisir un nom valide.");
-  }
-}
+      formNom.style.borderColor = "red";
+}}
 
 // email
 function validerMail(){
   if (regexAdresseMail.test(formMail.value) === true){
       champValide = true;
-      formMail.style.borderColor = "black";
       messageErreur[2].textContent = " ";
-  console.log("Adresse mail valide");
+      formMail.style.borderColor = "black";
 
   }else{
       champValide = false;
-      formMail.style.borderColor = "red";
       // message d'erreur :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
-  console.log("Veuillez saisir une adresse mail valide.");
-  }
-}
+      formMail.style.borderColor = "red";
+}}
 
 // fonction message Erreur
 //   for(i = 0; i < formulaireChamp.frequence.length; i++){
 // }
-
 // facultatif : date de naissance (inf à la date du jour)
 // message d'erreur :
 // messageErreur[3].textContent = "Veuillez saisir une date de naissance valide.";
 
-// nombre de concours (entre 0 et 99)
+// participations à un concours
 function validerConcours(){
   if (regexConcours.test(formConcours.value) === true){
       champValide = true;
-      formConcours.style.borderColor = "black";
       messageErreur[4].textContent = " ";
-  console.log("Nombre de participations valide");
+      formConcours.style.borderColor = "black";
 
   }else{
       champValide = false;
-      formConcours.style.borderColor = "red";
       // message d'erreur :
       messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
-  console.log("Renseignez le nombre de vos participations à un concours.");
-  }
-}
+      formConcours.style.borderColor = "red";
+}}
 
-// ENVOI DU FORMULAIRE
+// CONTRÔLE ET ENVOI DU FORMULAIRE
 function sendForm(){
   if (champValide = false){
     return false;
 
   }else{
     return true;
-}
-}
+}}
 
 
 
