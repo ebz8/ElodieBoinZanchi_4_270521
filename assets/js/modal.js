@@ -16,15 +16,14 @@ function editNav() {
 ////////////////
 
 // VARIABLES
-// Bloc de la modale
+// Blocs de la modale
 const modalCorps = document.querySelector(".bground"); // Corps de la modale
 const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouverture de la modale
-const btnFermerModale = document.querySelector(".close"); // Icône x : fermeture de la modale
+const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
-const formulaireChamp = document.querySelectorAll(".formData"); // Bloc contenant un input
+const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 
 // Données des utilisateurs
-// console.log(formData);
 const formPrenom = document.getElementById("first"); // Prénom
 const formNom = document.getElementById("last"); // Nom
 const formMail = document.getElementById("email"); // Adresse mail
@@ -32,7 +31,7 @@ const formDateNaissance = document.getElementById("birthdate"); // Date de naiss
 const formConcours = document.getElementById("quantity"); // Nombre de tournois
 const formVille = document.querySelectorAll(".formData .checkbox-input[type=radio]"); // Villes d'inscription
 
-// Validation conditions
+// Conditions de validation des inputs
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
 const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexConcours = /^\d+$/; // entre 0 et 99
@@ -44,15 +43,14 @@ const regexConcours = /^\d+$/; // entre 0 et 99
 function ouvrirModale() {
   modalCorps.style.display = "block";
 }
-
 btnOuvrirModale.forEach((btn) => btn.addEventListener("click", ouvrirModale));
 
 // Fermer la modale
 function fermerModale() {
   modalCorps.style.display = "none";
 }
-
 btnFermerModale.addEventListener('click', fermerModale);
+
 
 // VÉRIF DES CHAMPS INPUT
 // & MESSAGES D'ERREUR
@@ -61,15 +59,17 @@ btnFermerModale.addEventListener('click', fermerModale);
 function validerPrenom(){
   if (regexNom.test(formPrenom.value) === true){
       formPrenom.style.borderColor = "black";
-      // innerHTML appendchild formChamp : message d'erreur
 
   console.log("Prénom valide");
 
   }else{
       formPrenom.style.borderColor = "red";
-      // innerHTML appendchild formChamp : message d'erreur
+      // message d'erreur :
+      let msgErreur = document.createElement("span");
+      msgErreur.innerHTML = "<span> Veuillez saisir un prénom valide. </span>";
+      formPrenom.parendElement.appendChild(msgErreur); // version par classe mais trouver comment selec les suivantes
 
-    console.log("Veuillez renseigner un prénom valide.");
+  console.log("Veuillez saisir un prénom valide.");
   }
 }
 
@@ -77,11 +77,15 @@ function validerPrenom(){
 function validerNom(){
   if (regexNom.test(formNom.value) === true){
       formNom.style.borderColor = "black";
-  console.log("Nom valide");
 
   }else{
       formNom.style.borderColor = "red";
-    console.log("Veuillez renseigner un nom valide.");
+      // comment selec le formulaireChamp correspondant (boucle for?) :
+      let msgErreur = document.createElement("span");
+      msgErreur.innerHTML = "<span> Veuillez saisir un nom valide. </span>"
+      formNom.parentElement.appendChild(msgErreur);
+
+  console.log("Veuillez saisir un nom valide.");
   }
 }
 
@@ -93,30 +97,54 @@ function validerMail(){
 
   }else{
       formMail.style.borderColor = "red";
-    console.log("Veuillez renseigner une adresse mail valide.");
+      // message d'erreur
+      let msgErreur = document.createElement("span");
+      msgErreur.innerHTML = "<span> Veuillez renseigner une adresse mail valide. </span>"
+      formMail.parentElement.appendChild(msgErreur); 
+  console.log("Veuillez saisir une adresse mail valide.");
   }
 }
 
-// facultatif : date de naissance (18 ans min)
+// fonction message Erreur
+//   for(i = 0; i < formulaireChamp.frequence.length; i++){
+// }
+//   let msgErreur = document.createElement("span");
+//   msgErreur.innerHTML = "<span> Veuillez saisir une adresse mail valide. </span>"
+// }
+
+// facultatif : date de naissance (inf à la date du jour)
 
 // nombre de concours (entre 0 et 99)
 function validerConcours(){
   if (regexConcours.test(formConcours.value) === true){
       formConcours.style.borderColor = "black";
-  console.log("ok");
+  console.log("Nombre de participations valide");
 
   }else{
       formConcours.style.borderColor = "red";
-    console.log("Renseignez le nombre de vos participations à un concours.");
+  console.log("Renseignez le nombre de vos participations à un concours.");
   }
 }
 
 // ville : si un bouton radio checked = true
+function validerVille(){
+  if (formVille.checked === true){
+    console.log("Ville selectionnée");
+
+  }else{
+    // message d'erreur
+    let msgErreur = document.createElement("span");
+    msgErreur.innerHTML = "<span> Veuillez sélectionner une ville. </span>"
+    formVille.parentElement.appendChild(msgErreur);
+  }
+
+}
 
 // ENVOI DU FORMULAIRE
 function sendForm(){
-  if (formName.validity.valueMissing){
+if (formName.validity.valueMissing){
     e.preventDefault(); 
+    
   }
 }
 
