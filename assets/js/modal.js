@@ -42,7 +42,7 @@ const formConditions = document.getElementById("checkbox1"); // Accepter les con
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
 const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexConcours = /^[0-9][0-9]?$/; // entre 0 et 99
-const regexDate = /"^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$"/;
+const regexDate = /(?<=\D|^)(?<year>\d{4})(?<sep>[^\w\s])(?<month>1[0-2]|0[1-9])\k<sep>(?<day>0[1-9]|[12][0-9]|(?<=11\k<sep>|[^1][4-9]\k<sep>)30|(?<=1[02]\k<sep>|[^1][13578]\k<sep>)3[01])(?=\D|$)/;
 // const regexToday = new Date();
 // let champValide = false;
 
@@ -130,6 +130,8 @@ function validerMail(){
 // date de naissance
 function validerDateNaissance(){
 
+  console.log(formDateNaissance.value);
+
   if (regexDate.test(formDateNaissance.value) === true){
       dateNaissanceValide = true;
       formDateNaissance.style.borderColor = "black";
@@ -198,10 +200,14 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
       // bouton conditions d'utilisation non coché :
       messageErreur[6].textContent = "validation requise";
 
+      return false;
+
   }else{ 
     // fenêtre de confirmation d'envoi
-    modaleMessageConfirmation.style.display = "block"
-    modaleFormulaire.style.display = "none"
+    modaleMessageConfirmation.style.display = "block";
+    modaleFormulaire.style.display = "none";
+
+    return true;
   }
 })
 
