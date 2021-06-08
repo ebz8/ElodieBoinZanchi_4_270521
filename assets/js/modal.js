@@ -83,8 +83,6 @@ function validerPrenom(){
       formPrenom.style.borderColor = "red";
 }}
 
-
-
 // nom
 function validerNom(){
 
@@ -159,29 +157,15 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
     
   }else if (!formConditions.checked){
       e.preventDefault();
-      // conditions d'utilisation non coché :
+      // bouton conditions d'utilisation non coché :
       messageErreur[6].textContent = "validation requise";
 
   }else{ 
-    // Fenêtre de confirmation d'envoi
+    // fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "flex"
     modaleFormulaire.style.display = "none"
   }
 })
-
-  // e.preventDefault();
-
-// function sendForm(){
-  
-//   if (champValide = false){
-//     return false;
-
-//   }else{ 
-//     // Fenêtre de confirmation d'envoi
-//     modaleMessageConfirmation.style.display = "flex"
-//     modaleFormulaire.style.display = "none"
-    
-// }}
 
 
 
