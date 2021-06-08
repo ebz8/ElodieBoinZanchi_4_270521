@@ -228,6 +228,13 @@ reprendre le style pour bloquer les alertes HTML etc
   line-height: 0.3;
   transition: 0.3s;
 }
+
+.--conditions {
+  font-size: 0.8em;
+  display: inline;
+  margin-left: 0.5rem;
+}
+
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }

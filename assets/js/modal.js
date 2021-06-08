@@ -160,7 +160,7 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
   }else if (!formConditions.checked){
       e.preventDefault();
       // conditions d'utilisation non coché :
-      messageErreur[6].textContent = "Obligatoire.";
+      messageErreur[6].textContent = "validation requise";
 
   }else{ 
     // Fenêtre de confirmation d'envoi
