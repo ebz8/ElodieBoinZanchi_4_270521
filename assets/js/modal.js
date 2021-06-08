@@ -149,31 +149,39 @@ function validerConcours(){
       formConcours.style.borderColor = "red";
 }}
 
-// // conditions d'utilisation
-// function validerConditions(){
-
-// 	if (formConditions.checked){
-// 		champValide = true;
-// 	}else{
-// 		champValide = false;
-//     // message d'erreur :
-//     messageErreur[5].textContent = "Veuillez accepter les conditions";
-// }}
 
 // CONTRÔLE ET ENVOI DU FORMULAIRE
 
-
-function sendForm(){
-  
+btnEnvoiFormulaire.addEventListener('click', function(e){
   if (champValide = false){
-    return false;
+    e.preventDefault();
+    console.log("erreur");
+    
+  }else if (!formConditions.checked){
+      e.preventDefault();
+      // conditions d'utilisation non coché :
+      messageErreur[6].textContent = "Obligatoire.";
 
   }else{ 
     // Fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "flex"
     modaleFormulaire.style.display = "none"
+  }
+})
+
+  // e.preventDefault();
+
+// function sendForm(){
+  
+//   if (champValide = false){
+//     return false;
+
+//   }else{ 
+//     // Fenêtre de confirmation d'envoi
+//     modaleMessageConfirmation.style.display = "flex"
+//     modaleFormulaire.style.display = "none"
     
-}}
+// }}
 
 
 
