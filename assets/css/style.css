@@ -136,6 +136,7 @@ main {
   font-family: var(--font-slab);
 }
 
+
 /* Modal form */
 
 .button {
@@ -208,9 +209,15 @@ input {
   height: 48px;
 }
 
+.--confirmation{
+  display: none;
+}
+
 /* 
 reprendre le style pour bloquer les alertes HTML etc
-} */
+}
+
+.formData[data-error]::after */
 .data-error {
   font-size: 0.4em;
   color: #e54858;

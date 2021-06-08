@@ -55,11 +55,11 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
-          <div class="modal-body">
+          <div class="modal-body --formulaire">
             
             <!-- formulaire -->
             <form
-            name="reserve"
+            name="inscription"
             action="index.html"
             method="get"
             onsubmit="return sendForm();">
@@ -71,7 +71,7 @@
                   type="text"
                   id="first"
                   name="first"
-                  required
+                  
                   onblur= "validerPrenom();"
                   placeholder="Paul"
                 />
@@ -114,7 +114,6 @@
                   id="birthdate"
                   name="birthdate"
                   required
-                  onblur= "validerDateNaissance();"
                 />
                 <span class="data-error"></span>
               </div>
@@ -214,15 +213,13 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                   required
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-
-                <br> <!-- remplacer -->
+                <span class="data-error"></span>
 
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
@@ -232,19 +229,28 @@
                 <br> <!-- remplacer -->
               </div>
 
-              <input id="btn-submit" type="submit" class="button" value="C'est parti"/>
+              <!-- bouton d'envoi -->
+              <input
+              id="btn-submit"
+              type="submit"
+              class="button"
+              value="C'est parti"
+              />
             </form>
-
           </div>
+
+          <div class="modal-body --confirmation">
+            Merci de votre inscription.
+            <button class="button">Fermer</button>
+          </div>
+
         </div>
       </div>
 
     </main>
 
     <footer>
-      <p class="copyrights">
-        Copyright 2014 - 2021, GameOn Inc.
-      </p>
+      <p class="copyrights">Copyright 2014 - 2021, GameOn Inc.</p>
     </footer>
 
     <script src="assets/js/modal.js"></script>

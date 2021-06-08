@@ -11,18 +11,22 @@ function editNav() {
   }
 }
 
+
 ////////////////
 //   MODALE   //
 ////////////////
 
-// VARIABLES
+// DOM Elements
 // Blocs de la modale
-const modalCorps = document.querySelector(".bground"); // Corps de la modale
+const modaleCorps = document.querySelector(".bground"); // Corps de la modale
+const modaleFormulaire = document.querySelector(".--formulaire"); // Corps du formulaire
+const modaleMessageConfirmation = document.querySelector(".--confirmation"); // Corps du formulaire
 const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouverture de la modale
 const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 const messageErreur = document.getElementsByClassName("data-error");
+
 
 // Données des utilisateurs
 const formPrenom = document.getElementById("first"); // Prénom
@@ -31,25 +35,26 @@ const formMail = document.getElementById("email"); // Adresse mail
 const formDateNaissance = document.getElementById("birthdate"); // Date de naissance
 const formConcours = document.getElementById("quantity"); // Nombre de tournois
 const formVille = document.querySelectorAll(".formData .checkbox-input[type=radio]"); // Villes d'inscription
+const formConditions = document.getElementById("checkbox1"); // Accepter les conditions d'utilisation
 
 // Conditions de validation des inputs
+let champValide = false;
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
 const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexConcours = /^\d+$/; // entre 0 et 99
-let champValide = true;
 // const regexToday = new Date();
 
 
 // FENÊTRE MODALE
 // Ouvrir la modale
 function ouvrirModale() {
-  modalCorps.style.display = "block";
+  modaleCorps.style.display = "block";
 }
 btnOuvrirModale.forEach((btn) => btn.addEventListener("click", ouvrirModale));
 
 // Fermer la modale
 function fermerModale() {
-  modalCorps.style.display = "none";
+  modaleCorps.style.display = "none";
 }
 btnFermerModale.addEventListener('click', fermerModale);
 
@@ -59,74 +64,115 @@ btnFermerModale.addEventListener('click', fermerModale);
 
 // prénom
 function validerPrenom(){
+
   if (regexNom.test(formPrenom.value) === true){
-    champValide = true;
-    messageErreur[0].textContent = " ";
-    formPrenom.style.borderColor = "black";
+      champValide = true;
+      formPrenom.style.borderColor = "black";
+      messageErreur[0].textContent = " ";
+
+  }else if (!formPrenom.value){
+      champValide = false;
+      // message d'erreur de champ vide :
+      messageErreur[0].textContent = "Ce champ est obligatoire.";
+      formPrenom.style.borderColor = "red";
 
   }else{
-    champValide = false;
-    // message d'erreur :
-    messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
-    formPrenom.style.borderColor = "red";
+      champValide = false;
+      // message d'erreur de champ inccorect :
+      messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
+      formPrenom.style.borderColor = "red";
 }}
+
+
 
 // nom
 function validerNom(){
+
   if (regexNom.test(formNom.value) === true){
       champValide = true;
       formNom.style.borderColor = "black";
       messageErreur[1].textContent = " ";
 
+  }else if (!formNom.value){
+    champValide = false;
+      // message d'erreur de champ vide :
+      messageErreur[1].textContent = "Ce champ est obligatoire.";
+      formNom.style.borderColor = "red";
+
   }else{
       champValide = false;
-      // message d'erreur :
+      // message d'erreur de champ inccorect :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
       formNom.style.borderColor = "red";
 }}
 
+
 // email
 function validerMail(){
+
   if (regexAdresseMail.test(formMail.value) === true){
       champValide = true;
-      messageErreur[2].textContent = " ";
       formMail.style.borderColor = "black";
+      messageErreur[2].textContent = " ";
+
+  }else if (!formMail.value){
+    champValide = false;
+      // message d'erreur de champ vide :
+      messageErreur[2].textContent = "Ce champ est obligatoire.";
+      formMail.style.borderColor = "red";
 
   }else{
       champValide = false;
-      // message d'erreur :
+      // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "red";
 }}
 
-// fonction message Erreur
-//   for(i = 0; i < formulaireChamp.frequence.length; i++){
-// }
-// facultatif : date de naissance (inf à la date du jour)
-// message d'erreur :
-// messageErreur[3].textContent = "Veuillez saisir une date de naissance valide.";
-
-// participations à un concours
+// nombre de concours
 function validerConcours(){
+
   if (regexConcours.test(formConcours.value) === true){
       champValide = true;
-      messageErreur[4].textContent = " ";
       formConcours.style.borderColor = "black";
+      messageErreur[4].textContent = " ";
+
+  }else if (!formConcours.value){
+    champValide = false;
+      // message d'erreur de champ vide :
+      messageErreur[4].textContent = "Ce champ est obligatoire.";
+      formConcours.style.borderColor = "red";
 
   }else{
       champValide = false;
-      // message d'erreur :
+      // message d'erreur de champ inccorect :
       messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
       formConcours.style.borderColor = "red";
 }}
 
+// // conditions d'utilisation
+// function validerConditions(){
+
+// 	if (formConditions.checked){
+// 		champValide = true;
+// 	}else{
+// 		champValide = false;
+//     // message d'erreur :
+//     messageErreur[5].textContent = "Veuillez accepter les conditions";
+// }}
+
 // CONTRÔLE ET ENVOI DU FORMULAIRE
+
+
 function sendForm(){
+  
   if (champValide = false){
     return false;
 
-  }else{
-    return true;
+  }else{ 
+    // Fenêtre de confirmation d'envoi
+    modaleMessageConfirmation.style.display = "flex"
+    modaleFormulaire.style.display = "none"
+    
 }}
 
 
