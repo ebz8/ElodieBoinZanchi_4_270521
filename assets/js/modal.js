@@ -4,6 +4,7 @@
 
 function editNav() {
   var x = document.getElementById("myTopnav");
+
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -38,11 +39,12 @@ const formVille = document.querySelectorAll(".formData .checkbox-input[type=radi
 const formConditions = document.getElementById("checkbox1"); // Accepter les conditions d'utilisation
 
 // Conditions de validation des inputs
-let champValide = false;
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
 const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const regexConcours = /^\d+$/; // entre 0 et 99
+const regexConcours = /^[0-9][0-9]?$/; // entre 0 et 99
+const regexDate = /"^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$"/;
 // const regexToday = new Date();
+// let champValide = false;
 
 
 // FENÊTRE MODALE
@@ -66,18 +68,18 @@ btnFermerModale.addEventListener('click', fermerModale);
 function validerPrenom(){
 
   if (regexNom.test(formPrenom.value) === true){
-      champValide = true;
+      prenomValide = true;
       formPrenom.style.borderColor = "black";
       messageErreur[0].textContent = " ";
 
   }else if (!formPrenom.value){
-      champValide = false;
+      prenomValide = false;
       // message d'erreur de champ vide :
       messageErreur[0].textContent = "Ce champ est obligatoire.";
       formPrenom.style.borderColor = "red";
 
   }else{
-      champValide = false;
+      prenomValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
       formPrenom.style.borderColor = "red";
@@ -87,61 +89,81 @@ function validerPrenom(){
 function validerNom(){
 
   if (regexNom.test(formNom.value) === true){
-      champValide = true;
+      nomValide = true;
       formNom.style.borderColor = "black";
       messageErreur[1].textContent = " ";
 
   }else if (!formNom.value){
-    champValide = false;
+      nomValide = false;
       // message d'erreur de champ vide :
       messageErreur[1].textContent = "Ce champ est obligatoire.";
       formNom.style.borderColor = "red";
 
   }else{
-      champValide = false;
+      nomValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
       formNom.style.borderColor = "red";
 }}
 
-
 // email
 function validerMail(){
 
   if (regexAdresseMail.test(formMail.value) === true){
-      champValide = true;
+      mailValide = true;
       formMail.style.borderColor = "black";
       messageErreur[2].textContent = " ";
 
   }else if (!formMail.value){
-    champValide = false;
+      mailValide = false;
       // message d'erreur de champ vide :
       messageErreur[2].textContent = "Ce champ est obligatoire.";
       formMail.style.borderColor = "red";
 
   }else{
-      champValide = false;
+      mailValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "red";
+}}
+
+// date de naissance
+function validerDateNaissance(){
+
+  if (regexDate.test(formDateNaissance.value) === true){
+      dateNaissanceValide = true;
+      formDateNaissance.style.borderColor = "black";
+      messageErreur[3].textContent = " ";
+
+  }else if (!formDateNaissance.value){
+      dateNaissanceValide = false;
+      // message d'erreur de champ vide :
+      messageErreur[3].textContent = "Ce champ est obligatoire.";
+      formDateNaissance.style.borderColor = "red";
+
+  }else{
+      dateNaissanceValide = false;
+      // message d'erreur de champ inccorect :
+      messageErreur[3].textContent = "Veuillez saisir une date valide.";
+      formDateNaissance.style.borderColor = "red";
 }}
 
 // nombre de concours
 function validerConcours(){
 
   if (regexConcours.test(formConcours.value) === true){
-      champValide = true;
+      concoursValide = true;
       formConcours.style.borderColor = "black";
       messageErreur[4].textContent = " ";
 
   }else if (!formConcours.value){
-    champValide = false;
+    concoursValide = false;
       // message d'erreur de champ vide :
       messageErreur[4].textContent = "Ce champ est obligatoire.";
       formConcours.style.borderColor = "red";
 
   }else{
-      champValide = false;
+    concoursValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
       formConcours.style.borderColor = "red";
@@ -150,19 +172,35 @@ function validerConcours(){
 
 // CONTRÔLE ET ENVOI DU FORMULAIRE
 
+// let prenomValide = validerPrenom();
+// let nomValide = validerNom();
+// let mailValide = validerMail();
+// let DateNaissanceValide = validerDateNaissance();
+// let concoursValide = validerConcours();
+// let villeValide = validerVille();
+// let conditionsValide = validerConditions();
+
+
 btnEnvoiFormulaire.addEventListener('click', function(e){
-  if (champValide = false){
-    e.preventDefault();
+  e.preventDefault();
+
+  if ((prenomValide = false)
+   || (nomValide = false)
+   || (mailValide = false)
+   || (concoursValide = false)
+   || (dateNaissanceValide = false) ){
+
     console.log("erreur");
+
+    return false;
     
   }else if (!formConditions.checked){
-      e.preventDefault();
       // bouton conditions d'utilisation non coché :
       messageErreur[6].textContent = "validation requise";
 
   }else{ 
     // fenêtre de confirmation d'envoi
-    modaleMessageConfirmation.style.display = "flex"
+    modaleMessageConfirmation.style.display = "block"
     modaleFormulaire.style.display = "none"
   }
 })

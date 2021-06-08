@@ -217,12 +217,12 @@ input {
 reprendre le style pour bloquer les alertes HTML etc
 */
 .data-error {
-  font-size: 0.4em;
+  font-size: 0.45em;
   color: #e54858;
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
   line-height: 0.3;
   transition: 0.3s;
   opacity: 1;
