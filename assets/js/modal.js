@@ -46,6 +46,12 @@ const regexDate = /(?<=\D|^)(?<year>\d{4})(?<sep>[^\w\s])(?<month>1[0-2]|0[1-9])
 // const regexToday = new Date();
 // let champValide = false;
 
+let prenomValide = true;
+let nomValide = true;
+let mailValide = true;
+let dateNaissanceValide = true;
+let concoursValide = true;
+
 
 // FENÊTRE MODALE
 // Ouvrir la modale
@@ -67,31 +73,38 @@ btnFermerModale.addEventListener('click', fermerModale);
 // prénom
 function validerPrenom(){
 
-  if (regexNom.test(formPrenom.value) === true){
-      prenomValide = true;
-      formPrenom.style.borderColor = "black";
-      messageErreur[0].textContent = " ";
+  if (regexNom.test(formPrenom.value) == true){
+    formPrenom.style.borderColor = "black";
+    messageErreur[0].textContent = " ";
+    
+    prenomValide = true;
+    console.log(prenomValide);
 
   }else if (!formPrenom.value){
       prenomValide = false;
       // message d'erreur de champ vide :
       messageErreur[0].textContent = "Ce champ est obligatoire.";
       formPrenom.style.borderColor = "red";
+      
+      console.log("prénom non rempli");
 
   }else{
       prenomValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
       formPrenom.style.borderColor = "red";
+      console.log(prenomValide);
 }}
 
 // nom
 function validerNom(){
 
-  if (regexNom.test(formNom.value) === true){
+  if (regexNom.test(formNom.value) == true){
       nomValide = true;
       formNom.style.borderColor = "black";
       messageErreur[1].textContent = " ";
+
+      console.log(nomValide);
 
   }else if (!formNom.value){
       nomValide = false;
@@ -99,32 +112,45 @@ function validerNom(){
       messageErreur[1].textContent = "Ce champ est obligatoire.";
       formNom.style.borderColor = "red";
 
+      console.log(nomValide);
+
+
   }else{
       nomValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
       formNom.style.borderColor = "red";
+
+      console.log(nomValide);
+
 }}
 
 // email
 function validerMail(){
 
-  if (regexAdresseMail.test(formMail.value) === true){
+  if (regexAdresseMail.test(formMail.value) == true){
       mailValide = true;
       formMail.style.borderColor = "black";
       messageErreur[2].textContent = " ";
+      console.log("mail valide");
+      console.log(mailValide);
 
   }else if (!formMail.value){
       mailValide = false;
       // message d'erreur de champ vide :
       messageErreur[2].textContent = "Ce champ est obligatoire.";
       formMail.style.borderColor = "red";
+      console.log("mail non rempli")
 
-  }else{
+
+      
+    }else{
       mailValide = false;
       // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "red";
+      console.log("mail inccorect")
+
 }}
 
 // date de naissance
@@ -132,7 +158,7 @@ function validerDateNaissance(){
 
   console.log(formDateNaissance.value);
 
-  if (regexDate.test(formDateNaissance.value) === true){
+  if (regexDate.test(formDateNaissance.value) == true){
       dateNaissanceValide = true;
       formDateNaissance.style.borderColor = "black";
       messageErreur[3].textContent = " ";
@@ -153,7 +179,7 @@ function validerDateNaissance(){
 // nombre de concours
 function validerConcours(){
 
-  if (regexConcours.test(formConcours.value) === true){
+  if (regexConcours.test(formConcours.value) == true){
       concoursValide = true;
       formConcours.style.borderColor = "black";
       messageErreur[4].textContent = " ";
@@ -186,28 +212,30 @@ function validerConcours(){
 btnEnvoiFormulaire.addEventListener('click', function(e){
   e.preventDefault();
 
-  if ((prenomValide = false)
-   || (nomValide = false)
-   || (mailValide = false)
-   || (concoursValide = false)
-   || (dateNaissanceValide = false) ){
+  if ( (prenomValide == false)
+   || (nomValide == false)
+   || (mailValide == false)
+   || (concoursValide == false)
+   || (dateNaissanceValide == false) ){
 
     console.log("erreur");
 
-    return false;
     
   }else if (!formConditions.checked){
       // bouton conditions d'utilisation non coché :
       messageErreur[6].textContent = "validation requise";
 
-      return false;
+      console.log("validation requise");
+
+
 
   }else{ 
     // fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "block";
     modaleFormulaire.style.display = "none";
 
-    return true;
+    console.log("envoi");
+
   }
 })
 
