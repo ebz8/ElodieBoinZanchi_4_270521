@@ -25,8 +25,7 @@ const modaleMessageConfirmation = document.querySelector(".--confirmation"); // 
 const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouverture de la modale
 const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
-const EnvoiFormulaire = document.querySelector("form");
-console.log(EnvoiFormulaire);
+// const EnvoiFormulaire = document.querySelector("form");
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 const messageErreur = document.getElementsByClassName("data-error");
 const btnFermerConfirmation = document.querySelector(".btn-confirmation"); // Bouton close message confirmation
@@ -184,7 +183,7 @@ function validerConditions(){
 
 // CONTRÔLE ET ENVOI DU FORMULAIRE
 
-// vérification des champs au clic
+// vérification des champs
 btnEnvoiFormulaire.addEventListener('click', function(e){
   e.preventDefault();
   console.log(e.value); // vérification de l'envoi
@@ -199,21 +198,23 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
   let champsTousValides = prenomValide && nomValide && mailValide
   && DateNaissanceValide && concoursValide && conditionsValide;    
 
+  // affichage fenêtre de confirmation d'envoi
   if (champsTousValides){
-    // fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "flex";
     modaleFormulaire.style.display = "none";
     console.log("Formulaire envoyé.");
    
+  // blocage de l'envoi du formulaire non valide
   }else{ 
     console.log("Formulaire non validé.");
     return false;
   }
 })
 
-// empêchement du comportement par défaut du submit
-EnvoiFormulaire.addEventListener('submit', function (e) {
-  e.preventDefault();
-});
-
+// fermer la fenêtre de confirmation d'inscription
 btnFermerConfirmation.addEventListener('click', fermerModale);
+
+// // empêchement du comportement par défaut du submit
+// EnvoiFormulaire.addEventListener('submit', function (e) {
+//   e.preventDefault();
+// });
