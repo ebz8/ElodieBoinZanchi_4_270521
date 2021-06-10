@@ -71,21 +71,18 @@ function validerPrenom(){
   if (regexNom.test(formPrenom.value) == true){
     formPrenom.style.borderColor = "black";
     messageErreur[0].textContent = " ";
-    
     return true;
 
   }else if (!formPrenom.value){
       // message d'erreur de champ vide :
       messageErreur[0].textContent = "Ce champ est obligatoire.";
       formPrenom.style.borderColor = "red";
-      
       return false;
 
   }else{
       // message d'erreur de champ inccorect :
       messageErreur[0].textContent = "Veuillez saisir un prénom valide.";
       formPrenom.style.borderColor = "red";
-
       return false;
 }}
 
@@ -95,14 +92,12 @@ function validerNom(){
   if (regexNom.test(formNom.value) == true){
       formNom.style.borderColor = "black";
       messageErreur[1].textContent = " ";
-
       return true;
 
   }else if (!formNom.value){
       // message d'erreur de champ vide :
       messageErreur[1].textContent = "Ce champ est obligatoire.";
       formNom.style.borderColor = "red";
-
       return false;
 
 
@@ -110,7 +105,6 @@ function validerNom(){
       // message d'erreur de champ inccorect :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
       formNom.style.borderColor = "red";
-
       return false;
 
 }}
@@ -121,14 +115,12 @@ function validerMail(){
   if (regexAdresseMail.test(formMail.value) == true){
       formMail.style.borderColor = "black";
       messageErreur[2].textContent = " ";
-
       return true;
 
   }else if (!formMail.value){
       // message d'erreur de champ vide :
       messageErreur[2].textContent = "Ce champ est obligatoire.";
       formMail.style.borderColor = "red";
-
       return false;
 
 
@@ -137,7 +129,6 @@ function validerMail(){
       // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "red";
-
       return false;
 
 }}
@@ -148,21 +139,18 @@ function validerDateNaissance(){
   if (regexDate.test(formDateNaissance.value) == true){
       formDateNaissance.style.borderColor = "black";
       messageErreur[3].textContent = " ";
-
       return true;
 
   }else if (!formDateNaissance.value){
       // message d'erreur de champ vide :
       messageErreur[3].textContent = "Ce champ est obligatoire.";
       formDateNaissance.style.borderColor = "red";
-
       return false;
 
   }else{
       // message d'erreur de champ inccorect :
       messageErreur[3].textContent = "Veuillez saisir une date valide.";
       formDateNaissance.style.borderColor = "red";
-
       return false;
 }}
 
@@ -172,33 +160,28 @@ function validerConcours(){
   if (regexConcours.test(formConcours.value) == true){
       formConcours.style.borderColor = "black";
       messageErreur[4].textContent = " ";
-
       return true;
 
   }else if (!formConcours.value){
       // message d'erreur de champ vide :
       messageErreur[4].textContent = "Ce champ est obligatoire.";
       formConcours.style.borderColor = "red";
-
       return false;
 
   }else{
       // message d'erreur de champ inccorect :
       messageErreur[4].textContent = "Veuillez saisir un nombre en 0 et 99.";
       formConcours.style.borderColor = "red";
-
       return false;
 }}
 
 function validerConditions(){
   if (formConditions.checked){
-
     return true;
   }
   else{
     // bouton conditions d'utilisation non coché :
     messageErreur[6].textContent = "validation requise";
-
     return false;
   }
 }
@@ -223,9 +206,11 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
     // fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "block";
     modaleFormulaire.style.display = "none";
-    
+
+        console.log("Formulaire envoyé.");
+   
   }else{ 
-    console.log("erreur dans la vérification");
+    console.log("Formulaire non validé.");
 
     return false;
   }
