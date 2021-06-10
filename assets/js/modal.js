@@ -25,10 +25,11 @@ const modaleMessageConfirmation = document.querySelector(".--confirmation"); // 
 const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouverture de la modale
 const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
+const EnvoiFormulaire = document.querySelector("form");
+console.log(EnvoiFormulaire);
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 const messageErreur = document.getElementsByClassName("data-error");
 const btnFermerConfirmation = document.querySelector(".btn-confirmation"); // Bouton close message confirmation
-
 
 // Données des utilisateurs
 const formPrenom = document.getElementById("first"); // Prénom
@@ -38,6 +39,7 @@ const formDateNaissance = document.getElementById("birthdate"); // Date de naiss
 const formConcours = document.getElementById("quantity"); // Nombre de tournois
 const formVille = document.querySelectorAll(".formData .checkbox-input[type=radio]"); // Villes d'inscription
 const formConditions = document.getElementById("checkbox1"); // Accepter les conditions d'utilisation
+
 
 // Conditions de validation des inputs
 const regexNom = /^(?=[a-zA-ZéèîïÉÎÏ\s]{2,25}$)(?=[a-zA-Z\s])(?:([\w\s*?])\1?(?!\1))+$/;
@@ -182,8 +184,10 @@ function validerConditions(){
 
 // CONTRÔLE ET ENVOI DU FORMULAIRE
 
+// vérification des champs au clic
 btnEnvoiFormulaire.addEventListener('click', function(e){
   e.preventDefault();
+  console.log(e.value); // vérification de l'envoi
 
     let prenomValide = validerPrenom();
     let nomValide = validerNom();
@@ -207,6 +211,9 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
   }
 })
 
-btnFermerConfirmation.addEventListener('click', function(){
-    window.location.href="index.html";
-})
+// empêchement du comportement par défaut du submit
+EnvoiFormulaire.addEventListener('submit', function (e) {
+  e.preventDefault();
+});
+
+btnFermerConfirmation.addEventListener('click', fermerModale);
