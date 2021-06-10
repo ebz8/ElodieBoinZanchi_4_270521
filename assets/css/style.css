@@ -37,10 +37,45 @@ body {
   margin: 0 auto;
 }
 
+main {
+  font-size: 130%;
+  font-weight: bolder;
+  color: black;
+  padding-top: 0.5vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin: 1px 20px 15px;
+  border-radius: 2rem;
+  text-align: justify;
+}
+
 p {
   margin-bottom: 0;
   padding: 0.5vw;
 }
+
+.footer {
+  margin: 20px;
+  padding: 10px;
+  font-family: var(--font-slab);
+}
+
+.modal-btn {
+  font-size: 145%;
+  background: #fe142f;
+  display: flex;
+  margin: auto;
+  padding: 2em;
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.modal-btn:hover {
+  background: #3876ac;
+}
+
 
 img {
   padding-right: 1rem;
@@ -80,10 +115,7 @@ img {
   display: none;
 }
 
-/* -------------- */
 /*   RESPONSIVE   */
-/* -------------- */
-
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -114,42 +146,9 @@ img {
   }
 } 
 
-main {
-  font-size: 130%;
-  font-weight: bolder;
-  color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
-  border-radius: 2rem;
-  text-align: justify;
-}
-
-.modal-btn {
-  font-size: 145%;
-  background: #fe142f;
-  display: flex;
-  margin: auto;
-  padding: 2em;
-  color: #fff;
-  padding: 0.75rem 2.5rem;
-  border-radius: 1rem;
-  cursor: pointer;
-}
-
-.modal-btn:hover {
-  background: #3876ac;
-}
-
-.footer {
-  margin: 20px;
-  padding: 10px;
-  font-family: var(--font-slab);
-}
-
-
-/* Modal form */
+/* -------------- */
+/*   MODAL FORM   */
+/* -------------- */
 
 .button {
   background: #fe142f;
@@ -204,7 +203,7 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -214,27 +213,30 @@ input {
   border: 0.8px solid #ccc;
   outline: none;
 }
-.text-control {
-  margin: 0;
-  padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
-}
 
+/*  fenêtre confirmation envoi formulaire */
 .--confirmation{
   display: none;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-flow: column nowrap;
   text-align: center;
-  height: 70vh;
+  height: 100vh;
 }
 
-/* 
-reprendre le style pour bloquer les alertes HTML etc
-*/
+.btn-confirmation{
+  margin-top: 10vh;
+}
+
+/*  msg d'erreur  */
+.text-control {
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  height: 48px;
+}
+
 .data-error {
   font-size: 0.4em;
   color: #e54858;
@@ -284,8 +286,8 @@ faire l'animation en JS
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   background-color: #279e7a;
   border-radius: 50%;
   text-indent: 29px;
