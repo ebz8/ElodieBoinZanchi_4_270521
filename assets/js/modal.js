@@ -192,12 +192,12 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
     let concoursValide = validerConcours();
     let conditionsValide = validerConditions();
 
-  let champsValides = prenomValide && nomValide && mailValide
+  let champsTousValides = prenomValide && nomValide && mailValide
   && DateNaissanceValide && concoursValide && conditionsValide;    
 
-  if (champsValides){
+  if (champsTousValides){
     // fenêtre de confirmation d'envoi
-    modaleMessageConfirmation.style.display = "block";
+    modaleMessageConfirmation.style.display = "flex";
     modaleFormulaire.style.display = "none";
     console.log("Formulaire envoyé.");
    

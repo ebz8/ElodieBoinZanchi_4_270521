@@ -211,9 +211,11 @@ input {
 
 .--confirmation{
   display: none;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  text-align: center;
   height: 70vh;
-  
 }
 
 /* 
