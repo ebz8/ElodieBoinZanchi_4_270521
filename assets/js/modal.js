@@ -27,6 +27,7 @@ const btnFermerModale = document.querySelector(".close"); // Icône fermeture de
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 const messageErreur = document.getElementsByClassName("data-error");
+const btnFermerConfirmation = document.querySelector(".btn-confirmation"); // Bouton close message confirmation
 
 
 // Données des utilisateurs
@@ -241,3 +242,7 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
 
 
 
+
+btnFermerConfirmation.addEventListener('click', function(){
+  window.location.href="index.html";
+})

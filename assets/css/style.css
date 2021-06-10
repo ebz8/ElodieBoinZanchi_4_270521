@@ -211,13 +211,16 @@ input {
 
 .--confirmation{
   display: none;
+  flex-wrap: wrap;
+  height: 70vh;
+  
 }
 
 /* 
 reprendre le style pour bloquer les alertes HTML etc
 */
 .data-error {
-  font-size: 0.45em;
+  font-size: 0.4em;
   color: #e54858;
   display: block;
   margin-top: 10px;
