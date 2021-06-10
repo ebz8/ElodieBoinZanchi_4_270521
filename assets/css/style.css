@@ -8,7 +8,24 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
+
+/* -------------- */
+/*   ANIMATIONS   */
+/* -------------- */
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------------- */
+/*   LANDING-PAGE   */
+/* ---------------- */
 
 body {
   margin: 0;
@@ -42,7 +59,7 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #ff0000;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -51,16 +68,12 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
-}
-
+.topnav a:hover,
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -462,7 +475,6 @@ faire l'animation en JS
 }
 .btn-signup {
   outline: none;
-  /* text-transform: capitalize; */
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
@@ -476,6 +488,7 @@ faire l'animation en JS
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -492,6 +505,12 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+
+/* -------------- */
+/*   RESPONSIVE   */
+/* -------------- */
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -528,16 +547,6 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
-  }
-}
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
   }
 }
 
