@@ -6,9 +6,9 @@ function editNav() {
   var x = document.getElementById("myTopnav");
 
   if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+      x.className += " responsive";
+  }else{
+      x.className = "topnav";
   }
 }
 
@@ -53,12 +53,14 @@ const regexDate = /(?<=\D|^)(?<year>\d{4})(?<sep>[^\w\s])(?<month>1[0-2]|0[1-9])
 function ouvrirModale() {
   modaleCorps.style.display = "block";
 }
+
 btnOuvrirModale.forEach((btn) => btn.addEventListener("click", ouvrirModale));
 
 // Fermer la modale
 function fermerModale() {
   modaleCorps.style.display = "none";
 }
+
 btnFermerModale.addEventListener('click', fermerModale);
 
 
@@ -175,7 +177,7 @@ function validerConditions(){
       return true;
   }else{
       // bouton conditions d'utilisation non coché :
-      messageErreur[6].textContent = "validation requise";
+      messageErreur[6].textContent = "champ requis";
       return false;
 }}
 
@@ -210,7 +212,7 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
   }
 })
 
-// fermer la fenêtre de confirmation d'inscription
+// fermeture de la fenêtre de confirmation d'inscription
 btnFermerConfirmation.addEventListener('click', fermerModale);
 
 // // empêchement du comportement par défaut du submit
