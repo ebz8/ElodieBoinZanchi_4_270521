@@ -100,13 +100,11 @@ function validerNom(){
       formNom.style.borderColor = "red";
       return false;
 
-
   }else{
       // message d'erreur de champ inccorect :
       messageErreur[1].textContent = "Veuillez saisir un nom valide.";
       formNom.style.borderColor = "red";
       return false;
-
 }}
 
 // email
@@ -123,14 +121,11 @@ function validerMail(){
       formMail.style.borderColor = "red";
       return false;
 
-
-      
     }else{
       // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "red";
       return false;
-
 }}
 
 // date de naissance
@@ -177,14 +172,12 @@ function validerConcours(){
 
 function validerConditions(){
   if (formConditions.checked){
-    return true;
-  }
-  else{
-    // bouton conditions d'utilisation non coché :
-    messageErreur[6].textContent = "validation requise";
-    return false;
-  }
-}
+      return true;
+  }else{
+      // bouton conditions d'utilisation non coché :
+      messageErreur[6].textContent = "validation requise";
+      return false;
+}}
 
 
 // CONTRÔLE ET ENVOI DU FORMULAIRE
@@ -192,12 +185,12 @@ function validerConditions(){
 btnEnvoiFormulaire.addEventListener('click', function(e){
   e.preventDefault();
 
-  let prenomValide = validerPrenom();
-  let nomValide = validerNom();
-  let mailValide = validerMail();
-  let DateNaissanceValide = validerDateNaissance();
-  let concoursValide = validerConcours();
-  let conditionsValide = validerConditions();
+    let prenomValide = validerPrenom();
+    let nomValide = validerNom();
+    let mailValide = validerMail();
+    let DateNaissanceValide = validerDateNaissance();
+    let concoursValide = validerConcours();
+    let conditionsValide = validerConditions();
 
   let champsValides = prenomValide && nomValide && mailValide
   && DateNaissanceValide && concoursValide && conditionsValide;    
@@ -206,12 +199,10 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
     // fenêtre de confirmation d'envoi
     modaleMessageConfirmation.style.display = "block";
     modaleFormulaire.style.display = "none";
-
-        console.log("Formulaire envoyé.");
+    console.log("Formulaire envoyé.");
    
   }else{ 
     console.log("Formulaire non validé.");
-
     return false;
   }
 })
