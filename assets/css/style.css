@@ -478,8 +478,10 @@ faire l'animation en JS setAttribute
   z-index: 1;
   position: relative;
 }
+
+/* titre qui doit s'adapter à la larg écran*/
 .hero-headline {
-  font-size: 6rem;
+  font-size: 8vw;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -513,9 +515,12 @@ faire l'animation en JS setAttribute
   font-size: 1rem;
   font-weight: bolder;
 }
+
+/* bouton je minscris */
 .hero-section > .btn-signup {
   display: none;
 }
+
 footer {
   margin: 0 20px;
   padding-left: 2vw;
@@ -526,7 +531,8 @@ footer {
 
 @media screen and (max-width: 800px) {
   .hero-section {
-    display: block;
+    display: flex;
+    flex-flow: column wrap;
     box-shadow: unset;
   }
   .hero-content {
@@ -537,8 +543,10 @@ footer {
   .hero-content::after {
     content: unset;
   }
+
+  /* bouton je minscris */
   .hero-content .btn-signup {
-    display: none;
+    margin: 40px auto 0;
   }
   .hero-headline {
     white-space: normal;
