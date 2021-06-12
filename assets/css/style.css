@@ -3,6 +3,7 @@
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,15 +24,6 @@
   }
 }
 
-/* @keyframes modalclose {
-  from {
-    opacity: 1;
-    transform: translateY(150px);
-  }
-  to {
-    opacity: 0;
-  }
-} */
 
 /* ---------------- */
 /*   LANDING-PAGE   */
@@ -102,9 +94,9 @@ img {
     width: 18vw;
 }
 
-.main-navbar {
+/* .main-navbar {
     float: right;
-}
+} */
 
 .topnav a {
   display: block;
@@ -138,8 +130,6 @@ img {
 .topnav .icon {
   display: none;
 }
-
-
 
 
 /* -------------- */
@@ -233,12 +223,6 @@ input {
   border-radius: 8px;
 }
 
-.--conditions {
-  display: inline;
-  margin-left: 0.5rem;
-  font-size: 0.8em;
-}
-
 /* 
 faire l'animation en JS setAttribute
 */
@@ -261,6 +245,12 @@ faire l'animation en JS setAttribute
   opacity: 1;
 }
 
+.--conditions {
+  display: inline;
+  margin-left: 0.5rem;
+  font-size: 0.8em;
+}
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -268,6 +258,7 @@ faire l'animation en JS setAttribute
   font-size: 12px;
   font-weight: normal;
 }
+
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
@@ -282,6 +273,7 @@ faire l'animation en JS setAttribute
   border-radius: 50%;
   transition: 0.3s;
 }
+
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
@@ -298,21 +290,26 @@ faire l'animation en JS setAttribute
   transition: 0.3s;
   opacity: 0;
 }
+
 .checkbox-input {
   display: none;
 }
+
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
+
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
+
 .checkbox2-label .checkbox-icon {
   background: #c4c4c4;
   border-radius: 4px;
   border: 0;
 }
+
 .checkbox2-label .checkbox-icon::after {
   width: 7px;
   height: 4px;
@@ -325,6 +322,7 @@ faire l'animation en JS setAttribute
   top: 19%;
   transform: rotate(-55deg);
 }
+
 .close {
   cursor: pointer;
   position: absolute;
@@ -335,6 +333,7 @@ faire l'animation en JS setAttribute
   opacity: 1;
   transform: scale(0.7);
 }
+
 .close:before,
 .close:after {
   content: " ";
@@ -344,12 +343,15 @@ faire l'animation en JS setAttribute
   left: 15px;
   background-color: #fff;
 }
+
 .close:before {
   transform: rotate(45deg);
 }
+
 .close:after {
   transform: rotate(-45deg);
 }
+
 .btn-submit,
 .btn-signup {
   cursor: pointer;
@@ -362,6 +364,7 @@ faire l'animation en JS setAttribute
   border: 0;
   border-radius: 7px;
 }
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -373,6 +376,7 @@ faire l'animation en JS setAttribute
 .custom-select select {
   display: none;
 }
+
 .select-selected {
   background-color: #fff;
 }
@@ -428,11 +432,13 @@ faire l'animation en JS setAttribute
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 /* custom select end */
 .text-label {
   font-weight: normal;
   font-size: 16px;
 }
+
 .hero-section {
   grid-template-columns: repeat(12, 1fr);
   display: grid;
@@ -442,6 +448,7 @@ faire l'animation en JS setAttribute
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
 .hero-content {
   grid-column: span 4;
   position: relative;
@@ -451,6 +458,7 @@ faire l'animation en JS setAttribute
   color: #fff;
   text-align: left;
 }
+
 .hero-content::after {
   content: "";
   position: absolute;
@@ -460,6 +468,7 @@ faire l'animation en JS setAttribute
   height: 100%;
   background: #232323;
 }
+
 .hero-content > * {
   z-index: 1;
   position: relative;
@@ -471,12 +480,14 @@ faire l'animation en JS setAttribute
   font-weight: normal;
   white-space: nowrap;
 }
+
 .hero-text {
   width: 146%;
   margin-top: 57px;
   padding: 0;
   font-weight: normal;
 }
+
 .btn-signup {
   outline: none;
   margin: 0;
@@ -500,6 +511,7 @@ faire l'animation en JS setAttribute
   height: 100%;
   padding: 0;
 }
+
 .copyrights {
   margin: 60px 0 30px;
   padding: 0;
@@ -519,28 +531,55 @@ footer {
 /*   RESPONSIVE   */
 /* -------------- */
 
+@media screen and (max-width: 880px) {
+  .topnav.responsive .main-navbar{
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 50px;
+  }
+  
+  .topnav a {
+    display: none;
+  }
 
-@media screen and (max-width: 1020px) {
-  .topnav a {display: none;}
+  .topnav a:hover::after,
+  .topnav a.active::after {
+    display: none;
+  }
+
   .topnav a.icon {
+    /* float: right; */
     display: block;
-    float: right;
     color: #ff0000;
   }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
+  .topnav a.icon:hover {
+    /* float: right; */
     display: block;
-    color: #ff0000;
-
+    color: white;
   }
-}
 
-  /* .hero-content{
-    grid-column: span 12;
-} */
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .header-logo {
+    float: left;
+    display: block;
+    width: 20vw;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -596,33 +635,16 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    display: block;
-    float: none;
-    text-align: left;
-  }
-
-  .header-logo {
-    float: left;
-    display: block;
-    width: 20vw;
-  }
-}
-
 @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
+  
   .topnav a.icon {
     display: block;
     float: right;
     color: #ff0000;
     background-color: white;
+    margin-top: 15px;
   }
-} 
-
+}
