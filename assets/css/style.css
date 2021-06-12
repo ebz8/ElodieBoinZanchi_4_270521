@@ -571,12 +571,13 @@ footer {
     display: block;
     float: none;
     text-align: left;
+    font-size: 20px;
   }
 
-  .header-logo {
+  .header-logo img{
     float: left;
     display: block;
-    width: 20vw;
+    width: 45vw;
   }
 }
 
@@ -593,6 +594,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: 0;
   }
 
   .hero-content::after {
@@ -613,18 +615,20 @@ footer {
 
   .hero-headline {
     white-space: normal;
-    font-size: 3.5rem;
+    font-weight: bold;
+    font-size: 2rem;
   }
 
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    margin-top: 35px;
   }
 
   .hero-img img {
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 10px;
-    height: 60vh;
+    height: 90vw;
   }
 
   .copyrights {

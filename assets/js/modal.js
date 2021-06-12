@@ -214,8 +214,3 @@ btnEnvoiFormulaire.addEventListener('click', function(e){
 
 // fermeture de la fenêtre de confirmation d'inscription
 btnFermerConfirmation.addEventListener('click', fermerModale);
-
-// // empêchement du comportement par défaut du submit
-// EnvoiFormulaire.addEventListener('submit', function (e) {
-//   e.preventDefault();
-// });
