@@ -532,12 +532,6 @@ footer {
 /* -------------- */
 
 @media screen and (max-width: 880px) {
-  .topnav.responsive .main-navbar{
-    display: flex;
-    flex-flow: column wrap;
-    margin-top: 50px;
-  }
-  
   .topnav a {
     display: none;
   }
@@ -557,16 +551,27 @@ footer {
     /* float: right; */
     display: block;
     color: white;
+    background-color: #ff0000;
   }
 
-  .topnav.responsive {
+ .topnav.responsive {
     position: relative;
   }
 
+  .topnav.responsive .main-navbar{
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 50px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    z-index: 55;
+  }
+ 
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: -50px;
   }
 
   .topnav.responsive a {
@@ -635,7 +640,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 540px) {
+/* @media screen and (max-width: 540px) {
   .topnav a {
     display: none;
   }
@@ -647,4 +652,4 @@ footer {
     background-color: white;
     margin-top: 15px;
   }
-}
+} */
