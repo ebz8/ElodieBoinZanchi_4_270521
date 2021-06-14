@@ -442,7 +442,7 @@ faire l'animation en JS setAttribute
   grid-template-columns: repeat(12, 1fr);
   display: grid;
   overflow: hidden;
-  min-height: 93vh;
+  height: 80vh;
   margin-bottom: 10px;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -475,7 +475,7 @@ faire l'animation en JS setAttribute
 
 /* titre qui doit s'adapter à la larg écran*/
 .hero-headline {
-  font-size: 350%;
+  font-size: 6vw;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -530,11 +530,16 @@ footer {
 /*   RESPONSIVE   */
 /* -------------- */
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 1000px) {
   
   .topnav{
     padding: 2vw 2vw 0 2vw;
   }
+
+  .header-logo {
+    align-self: center;
+  }
+
   .topnav a {
     display: none;
   }
@@ -585,6 +590,7 @@ footer {
   .hero-section {
     display: flex;
     flex-flow: column wrap;
+    height: 100%;
     box-shadow: unset;
   }
 
@@ -593,7 +599,7 @@ footer {
     flex-flow: column wrap;
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
     min-width: 0;
   }
 
@@ -616,13 +622,14 @@ footer {
   .hero-headline {
     white-space: normal;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 10vw;
   }
 
   .hero-text {
     width: unset;
-    font-size: 1.1rem;
-    margin-top: 35px;
+    font-size: 4vw;
+    margin-top: 4vw;
+    margin-bottom: 2vw;
   }
 
   .hero-img img {
