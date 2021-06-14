@@ -202,15 +202,11 @@ input {
 /*  fenêtre confirmation envoi formulaire */
 .--confirmation{
   display: none;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   text-align: center;
-  height: 100vh;
-}
-
-.btn-confirmation{
-  margin-top: 10vh;
+  height: 90vh;
 }
 
 /*  msg d'erreur  */
