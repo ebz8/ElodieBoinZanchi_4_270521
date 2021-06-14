@@ -642,6 +642,9 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  .bground{
+    background-color: transparent;
+  }
 }
 
 /* @media screen and (max-width: 540px) {
