@@ -174,6 +174,7 @@ function validerConcours(){
 
 function validerConditions(){
   if (formConditions.checked){
+    messageErreur[6].textContent = " ";
       return true;
   }else{
       // bouton conditions d'utilisation non coché :
