@@ -209,7 +209,6 @@ input {
   height: 90vh;
 }
 
-/*  msg d'erreur  */
 .text-control {
   width: 100%;
   height: 48px;
@@ -234,7 +233,7 @@ faire l'animation en JS setAttribute
 }
 
 /* 
-faire l'animation en JS setAttribute
+faire lanimation en JS setAttribute
 */
 .data-error::after {
   opacity: 1;
@@ -442,7 +441,8 @@ faire l'animation en JS setAttribute
   grid-template-columns: repeat(12, 1fr);
   display: grid;
   overflow: hidden;
-  height: 80vh;
+  /* height: 80vh; */
+  /* min-height: 50vh; */
   margin-bottom: 10px;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -550,11 +550,11 @@ footer {
   }
 
   .topnav a.icon {
-    /* float: right; */
     display: block;
     color: #ff0000;
     background-color: white;
     font-size: 20px;
+    height: 2vw;
   }
 
   .topnav.responsive {
@@ -562,13 +562,13 @@ footer {
   }
 
   .topnav.responsive .main-navbar{
+    z-index: 55;
+    position: absolute;
+    right: 0;
     display: flex;
     flex-flow: column wrap;
     margin-top: 50px;
     background-color: white;
-    position: absolute;
-    right: 0;
-    z-index: 55;
     border-radius: 15px;
   }
  
@@ -576,6 +576,7 @@ footer {
     position: absolute;
     right: 0;
     top: -50px;
+    right: 2vw;
   }
 
   .topnav.responsive a {
