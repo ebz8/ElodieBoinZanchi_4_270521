@@ -25,7 +25,6 @@ const modaleMessageConfirmation = document.querySelector(".--confirmation"); // 
 const btnOuvrirModale = document.querySelectorAll(".modal-btn"); // Bouton d'ouverture de la modale
 const btnFermerModale = document.querySelector(".close"); // Icône fermeture de la modale
 const btnEnvoiFormulaire = document.getElementById("btn-submit"); // Bouton envoi du formulaire
-// const EnvoiFormulaire = document.querySelector("form");
 const formulaireChamp = document.querySelector(".formData"); // Bloc contenant un input
 const messageErreur = document.getElementsByClassName("data-error");
 const btnFermerConfirmation = document.querySelector(".btn-confirmation"); // Bouton close message confirmation
@@ -45,7 +44,6 @@ const regexAdresseMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a
 const regexConcours = /^[0-9][0-9]?$/; // entre 0 et 99
 const regexDate = /(?<=\D|^)(?<year>\d{4})(?<sep>[^\w\s])(?<month>1[0-2]|0[1-9])\k<sep>(?<day>0[1-9]|[12][0-9]|(?<=11\k<sep>|[^1][4-9]\k<sep>)30|(?<=1[02]\k<sep>|[^1][13578]\k<sep>)3[01])(?=\D|$)/;
 // const regexToday = new Date();
-// let champValide = false;
 
 
 // FENÊTRE MODALE
