@@ -64,6 +64,7 @@ btnFermerModale.addEventListener('click', fermerModale);
 
 // VÉRIF DES CHAMPS INPUT
 // & MESSAGES D'ERREUR
+// (fonctions appelées depuis le HTML : onblur)
 
 // prénom
 function validerPrenom(){
@@ -121,7 +122,7 @@ function validerMail(){
       formMail.style.borderColor = "#ff0000";
       return false;
 
-    }else{
+  }else{
       // message d'erreur de champ inccorect :
       messageErreur[2].textContent = "Veuillez saisir une adresse mail valide.";
       formMail.style.borderColor = "#ff0000";
@@ -186,7 +187,6 @@ function validerConditions(){
 // vérification des champs
 btnEnvoiFormulaire.addEventListener('click', function(e){
   e.preventDefault();
-  console.log(e.value); // vérification de l'envoi
 
     let prenomValide = validerPrenom();
     let nomValide = validerNom();

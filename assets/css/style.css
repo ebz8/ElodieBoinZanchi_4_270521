@@ -63,7 +63,7 @@ p {
 
 
 
-/*   bouton   */
+/*   bouton Je m'inscris */
 .modal-btn {
   cursor: pointer;
   display: flex;
@@ -79,17 +79,15 @@ p {
   background: #3876ac;
 }
 
-/*   navigation   */
+/* 
+section navigation
+*/
 .topnav {
   margin: 3.5%;
   display: flex;
   justify-content: space-between;
 }
 
-/* img {
-  padding-right: 1rem;
-  width: 100%;
-} */
 .header-logo {
   width: 25vw;
   max-width: 300px;
@@ -199,7 +197,7 @@ input {
   border: 0.8px solid #ccc;
 }
 
-/*  fenetre confirmation envoi formulaire */
+/*  fenetre de confirmation de l'envoi du formulaire */
 .--confirmation {
   display: none;
   flex-flow: row wrap;
@@ -209,6 +207,7 @@ input {
   height: 80vh;
 }
 
+/*  champ de saisie des données */
 .text-control {
   width: 100%;
   height: 48px;
@@ -217,9 +216,7 @@ input {
   border-radius: 8px;
 }
 
-/* 
-faire l'animation en JS setAttribute
-*/
+/*  message d'erreur */
 .data-error {
   font-size: 0.4em;
   color: #e54858;
@@ -228,21 +225,7 @@ faire l'animation en JS setAttribute
   margin-bottom: 5px;
   text-align: left;
   line-height: 0.3;
-  transition: 0.3s;
   opacity: 1;
-}
-
-/* 
-faire lanimation en JS setAttribute
-*/
-.data-error::after {
-  opacity: 1;
-}
-
-.--conditions {
-  display: inline;
-  margin-left: 0.5rem;
-  font-size: 0.8em;
 }
 
 .checkbox-label,
@@ -328,8 +311,8 @@ faire lanimation en JS setAttribute
   transform: scale(0.7);
 }
 
-.close:before,
-.close:after {
+.close::before,
+.close::after {
   content: " ";
   position: absolute;
   width: 3px;
@@ -338,11 +321,11 @@ faire lanimation en JS setAttribute
   background-color: #fff;
 }
 
-.close:before {
+.close::before {
   transform: rotate(45deg);
 }
 
-.close:after {
+.close::after {
   transform: rotate(-45deg);
 }
 
@@ -431,6 +414,13 @@ faire lanimation en JS setAttribute
 .text-label {
   font-weight: normal;
   font-size: 16px;
+}
+
+/*  style particulier pour les CGU */
+.--conditions {
+  display: inline;
+  margin-left: 0.5rem;
+  font-size: 0.8em;
 }
 
 /* ---------------- */
@@ -586,7 +576,9 @@ footer {
     font-size: 20px;
   }
 
-  /* modale */
+  /*
+  modale
+   */
 
   .content{
     margin: 10vh auto
@@ -654,17 +646,3 @@ footer {
     text-align: center;
   }
 }
-
-/* @media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  
-  .topnav a.icon {
-    display: block;
-    float: right;
-    color: #ff0000;
-    background-color: white;
-    margin-top: 15px;
-  }
-} */
