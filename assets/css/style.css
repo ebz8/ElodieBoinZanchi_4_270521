@@ -530,6 +530,10 @@ footer {
     align-self: center;
   }
 
+  .header-logo img{
+    width: 100%;
+  }
+
   .topnav a {
     display: none;
   }
